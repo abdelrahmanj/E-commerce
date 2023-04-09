@@ -1,0 +1,14 @@
+<div class="box mt-5 container">  
+    <div class="my-5 w-25 position-relative">
+      <app-select class="topEnd" [title]="'Categories'" [data]="allCategories" (fromChild)="getValue($event)"></app-select>
+    </div>
+
+    <div class="row" *ngIf="!loading">
+        <div class="col-md-3 col-sm-12 "  *ngFor="let item of allProducts" >
+            <app-item-box [data]="item" (item)="addCarts($event)"></app-item-box>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center" *ngIf="loading">
+        <app-spinner></app-spinner>
+    </div>
+</div> 
